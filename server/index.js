@@ -1,12 +1,16 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
+import dotenv from 'dotenv';
+
 import dbConfig from './config/db';
 import middlewareConfig from './config/middleware';
 import config from '../webpack.config'
-import { TwitterRoutes } from './modules';
+
+import { TweetRoutes } from './modules';
 
 let app = express();
+// dotenv.load();
 let compiler = webpack(config);
 
 dbConfig();
@@ -18,7 +22,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
-app.use('/twitter', [ TwitterRoutes ]);
+app.use('/tweet', [ TweetRoutes ]);
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '../src/index.html'));

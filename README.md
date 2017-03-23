@@ -1,8 +1,8 @@
-# A basic full stack react template with hot loading
+# Streaming Twitter with React and Node
 
 ## Install & Usage
 
-git clone https://github.com/phc5/full-stack-react-template.git
+git clone https://github.com/phc5/twitter_stream_react.git
 
 cd into project directory
 

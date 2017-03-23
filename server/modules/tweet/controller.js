@@ -3,7 +3,7 @@ import { client, params } from './twitterAuth';
 
 export const hi = async (req, res) => {
 	try {
-		client.stream('statuses/filter', {track: '#NationalPuppyDay'}, (stream) => {
+		client.stream('statuses/filter', {track: '#NationalPuppyDay', count: 5}, (stream) => {
 			stream.on('data', (tweet) => {
 				console.log(tweet.text);
 			})

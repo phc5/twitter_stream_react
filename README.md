@@ -1,4 +1,4 @@
-#A basic full stack react template with hot loading
+# A basic full stack react template with hot loading
 
 ## Install & Usage
 

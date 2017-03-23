@@ -3,9 +3,13 @@ import { client, params } from './twitterAuth';
 
 export const hi = async (req, res) => {
 	try {
-		client.get('statuses/user_timeline', params, (err, tweets, res) => {
-			if (err) console.log(err);
-			console.log(tweets.length);
+		client.stream('statuses/filter', {track: '#NationalPuppyDay'}, (stream) => {
+			stream.on('data', (tweet) => {
+				console.log(tweet.text);
+			})
+			stream.on('error', (err) => {
+				console.log(err);
+			})
 		})
 		return res.status(200).json('helllo');
 	} catch (e) {
